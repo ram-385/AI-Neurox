@@ -1,0 +1,47 @@
+.cta {
+  padding: 100px 20px;
+  text-align: center;
+
+  background: linear-gradient(
+    135deg,
+    #050b1a,
+    #0a1f3f
+  );
+
+  color: white;
+}
+
+/* HEADING */
+.cta h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+
+  background: linear-gradient(90deg, #00aaff, #00ffcc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* BUTTON */
+.cta-btn {
+  padding: 14px 28px;
+  font-size: 16px;
+  display: inline-block;
+  border-radius: 30px;
+  border: none;
+
+  background: linear-gradient(90deg, #00aaff, #00ffcc);
+  color: #000;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* HOVER */
+.cta-btn:hover {
+  transform: scale(1.08);
+
+  box-shadow: 
+    0 0 20px rgba(0, 150, 255, 0.6),
+    0 0 40px rgba(0, 255, 200, 0.4);
+}

@@ -13,7 +13,7 @@ function Features() {
       <h2 className="features-title"><span>Key Features</span></h2>
       <div className="features-container">
 
-        <NavLink to="/upload" style={{ textDecoration: "none" }}>
+        <NavLink to="/Upload" style={{ textDecoration: "none" }}>
           <Card
             img={uploadImg}
             title="Upload Data"

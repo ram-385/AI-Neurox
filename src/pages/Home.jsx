@@ -15,13 +15,13 @@ function LandingPage() {
   return (
     <div>
     
-     <NavBar/>
+    
      <Hero/>
      <Features/>
      <Workflow/>
      <Preview/>
      <CTA/>
-     <Footer/>
+   
 
    </div>
   )

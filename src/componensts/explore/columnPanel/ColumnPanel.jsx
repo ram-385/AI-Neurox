@@ -2,13 +2,8 @@ import React, { useState } from "react";
 import ColumnItem from "./ColumnItem";
 import "./columnPanel.css";
 
-function ColumnPanel() {
-  const [columns, setColumns] = useState([
-    { name: "age", type: "int" },
-    { name: "salary", type: "float" },
-    { name: "gender", type: "category" },
-    { name: "city", type: "string" }
-  ]);
+function ColumnPanel({columns=[],setColumns}) {
+  
 
   const [selectedColumn, setSelectedColumn] = useState(null);
   const [search, setSearch] = useState("");

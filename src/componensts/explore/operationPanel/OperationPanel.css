@@ -1,0 +1,72 @@
+.operation-panel {
+  width: 100%;
+  background: #0a0f2c;
+  border: 1px solid #1f2a4a;
+  border-radius: 12px;
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+    margin:5px;
+  color: #e6f1ff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.operation-panel-title {
+  font-size: 18px;
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* SELECTS */
+.operation-panel-select {
+  width: 90%;
+  padding: 10px;
+
+  border-radius: 8px;
+  background: #121a3a;
+
+  color: #e6f1ff;
+  border: 1px solid #2a355a;
+
+  outline: none;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.operation-panel-select:hover {
+  border-color: #4c6fff;
+}
+
+.operation-panel-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* BUTTON */
+.operation-panel-button {
+  padding: 10px;
+  border-radius: 8px;
+
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #4c6fff, #6f4cff);
+  color: white;
+
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.operation-panel-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(76, 111, 255, 0.3);
+}
+
+.operation-panel-button:active {
+  transform: scale(0.98);
+}

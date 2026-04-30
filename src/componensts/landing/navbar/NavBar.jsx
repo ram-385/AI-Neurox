@@ -7,7 +7,7 @@ import './Navbar.css'
 
 const Navlinks = [
     { label: "Home", path: "/" },
-    { label: "Features", path: "/Features" },
+    { label: "Explore", path: "/Explore" },
     { label: "Upload Dataset", path: "/Upload" },
     { label: "Documentation", path: "/Documentation" },
     {label : 'Workflow',path:'/Workkflow'}

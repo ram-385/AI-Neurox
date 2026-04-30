@@ -1,0 +1,45 @@
+.action-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+
+  padding: 16px;
+  margin: 10px;
+
+  border-radius: 16px;
+
+  /* visible container background */
+  background: linear-gradient(
+    180deg,
+    rgba(17, 24, 39, 0.95),
+    rgba(11, 18, 32, 0.98)
+  );
+
+  /* subtle border to separate from page */
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  /* depth */
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  /* smooth interaction */
+  transition: all 0.25s ease;
+}
+
+/* hover effect for whole panel */
+.action-panel:hover {
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(99, 102, 241, 0.15);
+}
+
+/* optional header (agar add karna chaho future me) */
+.action-panel-header {
+  grid-column: 1 / -1;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+
+  margin-bottom: 6px;
+}

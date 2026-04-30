@@ -1,0 +1,108 @@
+.action-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 12px;
+  border-radius: 12px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(17, 24, 39, 0.9),
+    rgba(11, 18, 32, 0.95)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  transition: all 0.25s ease;
+}
+
+
+.action-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* top section */
+.action-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* icon */
+.icon-squre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.25s ease;
+}
+.icon-squre:hover {
+  transform: translateY(-2px) scale(1.05);
+
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #4f46e5
+  );
+
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.35);
+}
+
+/* text */
+.Action h2 {
+  font-size: 14px;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.Action p {
+  font-size: 12px;
+  margin: 2px 0 0;
+  color: var(--text-secondary);
+}
+
+/* button container */
+.ActionBtn {
+  margin-top: 10px;
+}
+
+/* button */
+.ActionBtn button {
+  width: 100%;
+  padding: 7px;
+
+  border-radius: 8px;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+
+  font-size: 12px;
+  cursor: pointer;
+
+  /* futuristic dark blue base */
+  background: linear-gradient(
+    180deg,
+    #0f172a,
+    #0b1220
+  );
+
+  color: #e6eaf5;
+
+  transition: all 0.2s ease;
+}
+
+/* hover state */
+.ActionBtn button:hover {
+  background: linear-gradient(
+    135deg,
+    #1d4ed8,
+    #6366f1
+  );
+
+  border-color: rgba(99, 102, 241, 0.5);
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+}

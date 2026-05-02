@@ -5,7 +5,7 @@ function Preview({Data}) {
   if(!Data) return null;
 
   return  (
-     <div className="preview-box">
+     <div className="UPreview-box">
            
 
             {/* TABLE PREVIEW (FIXED WRAPPER ADDED) */}

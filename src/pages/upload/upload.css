@@ -2,7 +2,7 @@
 .upload-page {
   min-height: 100vh;
   padding: 40px 20px;
-
+  width: 100%;
   background: linear-gradient(135deg, #050b1a, #0a1f3f);
   color: white;
 
@@ -15,19 +15,6 @@
 }
 
 
-.upload-page h2 {
-   font-family: 'Space Grotesk', sans-serif;
-  font-size: 44px;
-  font-weight: 800;
-  text-decoration: underline;
-
-  background: linear-gradient(90deg, #00d4ff, #7b61ff, #00ffcc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  letter-spacing: 1px;
-
-}
 
 
 .dataset-section {
@@ -114,35 +101,53 @@
 }
 
 .upload-section {
-  margin: 30px auto;
+  
   width: 95%;
   max-width: 1100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center content */
 }
-.upload-section h3{
-  color: #00ffaa !important;
-}
+
+/* Heading */
 .upload-section h3 {
-  color: #fff;
+  color: #00ffaa;
 }
 
 .upload-section p {
   color: #aaa;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 /* BOX */
 .upload-box {
-  display: block;
-  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 320px;   /* balanced size */
+  padding: 35px;
 
   border-radius: 14px;
-  border: 2px dashed rgba(0,170,255,0.4);
+  border: 2px dashed rgba(0, 170, 255, 0.4);
 
   text-align: center;
   cursor: pointer;
 
-  background: rgba(255,255,255,0.02);
+  background: rgba(255, 255, 255, 0.03);
+
   transition: 0.3s ease;
+
+  backdrop-filter: blur(8px); /* glass effect */
+}
+
+/* Hover effect */
+.upload-box:hover {
+  border-color: #00aaff;
+  transform: translateY(-2px);
 }
 
 /* HIDE INPUT */
@@ -150,27 +155,20 @@
   display: none;
 }
 
-/* CONTENT */
-.upload-content {
-  color: #ccc;
-}
-
 /* ICON */
-.upload-icon {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
+.upload-icon img {
+  width: 45px;
+  height: 45px;
 
-/* TEXT */
-.upload-content p {
-  font-size: 16px;
-  color: #ddd;
+  opacity: 0.75;
+  filter: brightness(0.9) contrast(1.1);
+  mix-blend-mode: screen; /* makes it blend with bg */
 }
 
 .upload-content span {
   color: #00aaff;
+  font-size: 14px;
 }
-
 /* HOVER */
 .upload-box:hover {
   border-color: #00aaff;
@@ -179,7 +177,7 @@
 
 
 .file-info-box {
-  width: 90%;
+  width: 80%;
   max-width: 900px;
 
   padding: 18px;

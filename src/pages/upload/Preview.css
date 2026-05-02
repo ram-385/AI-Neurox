@@ -1,8 +1,8 @@
-.preview-box {
-  width: 95%;
-  max-width: 1100px;
+.UPreview-box {
+    width: 90%;
+   margin:10px,30px,20px,30px;
    color :#00aaff;
-  max-height: 520px;
+   max-height: 520px;
 
   padding: 15px;
   border-radius: 18px;
@@ -26,18 +26,17 @@
 }
 
 /* TABLE */
-.preview-box table {
+.UPreview-box table {
   width: max-content;
   min-width: 100%;
-
   border-collapse: collapse;
   font-size: 14px;
   color: #eee;
 }
 
 /* CELLS */
-.preview-box th,
-.preview-box td {
+.UPreview-box th,
+.UPreview-box td {
   border: 1px solid rgba(255,255,255,0.15);
   padding: 10px;
   text-align: left;
@@ -45,7 +44,7 @@
 }
 
 /* HEADER STICKY */
-.preview-box th {
+.UPreview-box th {
   background: rgba(0, 170, 255, 0.15);
   color: #00d4ff;
 
@@ -102,7 +101,7 @@
 }
 
 
-.preview-box pre {
+.UPreview-box pre {
   color: #ddd;
   font-size: 13px;
   white-space: pre-wrap;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./upload.css";
 
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import JSZip from "jszip";
 import Papa from "papaparse";
@@ -16,11 +16,49 @@ import Xml from "../../assets/upload-assets/xml.png";
 import Text from "../../assets/upload-assets/text.png";
 import Img from "../../assets/upload-assets/img.png";
 import Excel from "../../assets/upload-assets/excel.jpg";
+import upload from "../../assets/landing-assets/upload.jpg";
 
 function Upload() {
   const [selected, setSelected] = useState("");
   const [fileInfo, setFileInfo] = useState(null);
   const [previewData, setPreviewData] = useState(null);
+ const [file, setFile] = useState(null);
+
+  // upload data to backend for further exploration task 
+  const navigate = useNavigate();
+
+  const uploadToBackend = async () => {
+    if (!file) {
+      alert("No file selected");
+      return;
+    }
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const res = await fetch("http://127.0.0.1:8000/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+
+      // store response
+      localStorage.setItem("dataset_id", data.dataset_id);
+      localStorage.setItem("columns", JSON.stringify(data.columns));
+      localStorage.setItem("Data", JSON.stringify(data.Data));
+
+      //  navigate after  upload
+      navigate("/Explore");
+
+    } catch (err) {
+      console.error(err);
+      alert("Upload failed");
+    }
+  };
+
+
 
   const fileTypes = {
     csv: { ext: ".csv", icon: Csv },
@@ -51,8 +89,10 @@ function Upload() {
   };
 
   const handleFile = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
+     const selectedFile = e.target.files[0];
+     if (!selectedFile) return;
+
+     setFile(selectedFile);  
 
     if (!selected) {
       alert("Please select dataset type first");
@@ -62,12 +102,12 @@ function Upload() {
     try {
       // IMAGE ZIP
       if (selected === "img") {
-        if (!file.name.toLowerCase().endsWith(".zip")) {
+        if (!selectedFile.name.toLowerCase().endsWith(".zip")) {
           alert("Only ZIP file allowed for image dataset");
           return;
         }
 
-        const zip = await JSZip.loadAsync(file);
+        const zip = await JSZip.loadAsync(selectedFile);
         const imageFiles = [];
 
         Object.values(zip.files).forEach((entry) => {
@@ -95,9 +135,9 @@ function Upload() {
         );
 
         setFileInfo({
-          name: file.name,
+          name: selectedFile.name,
           type: "Image ZIP",
-          size: (file.size / 1024).toFixed(2) + " KB",
+          size: (selectedFile.size / 1024).toFixed(2) + " KB",
           fileCount: imageFiles.length,
         });
 
@@ -109,25 +149,25 @@ function Upload() {
         return;
       }
 
-      
+
       const allowed = selected ? fileTypes[selected].ext : "";
       const regex = new RegExp(allowed.replace(/,/g, "|"), "i");
 
-      if (!regex.test(file.name)) {
+      if (!regex.test(selectedFile.name)) {
         alert("Wrong file type selected");
         return;
       }
 
       setFileInfo({
-        name: file.name,
+        name: selectedFile.name,
         type: selected,
-        size: (file.size / 1024).toFixed(2) + " KB",
+        size: (selectedFile.size / 1024).toFixed(2) + " KB",
         fileCount: 1,
       });
 
       // CSV
       if (selected === "csv") {
-        Papa.parse(file, {
+        Papa.parse(selectedFile, {
           header: true,
           complete: (result) => {
             const cleanData = result.data.filter(
@@ -136,7 +176,7 @@ function Upload() {
 
             setPreviewData({
               type: "table",
-              data: cleanData.slice(0, 20),
+              data: cleanData,
             });
           },
         });
@@ -155,11 +195,11 @@ function Upload() {
 
           setPreviewData({
             type: "table",
-            data: json.slice(0, 20),
+            data: json,
           });
         };
 
-        reader.readAsArrayBuffer(file);
+        reader.readAsArrayBuffer(selectedFile);
       }
 
       // JSON
@@ -178,11 +218,11 @@ function Upload() {
 
           setPreviewData({
             type: "table",
-            data: data.slice(0, 20),
+            data: data,
           });
         };
 
-        reader.readAsText(file);
+        reader.readAsText(selectedFile);
       }
 
       // XML
@@ -202,11 +242,11 @@ function Upload() {
 
           setPreviewData({
             type: "table",
-            data: data.slice(0, 20),
+            data: data,
           });
         };
 
-        reader.readAsText(file);
+        reader.readAsText(selectedFile);
       }
 
       // TEXT
@@ -220,7 +260,7 @@ function Upload() {
           });
         };
 
-        reader.readAsText(file);
+        reader.readAsText(selectedFile);
       }
     } catch (error) {
       console.error(error);
@@ -230,7 +270,6 @@ function Upload() {
 
   return (
     <div className="upload-page">
-      <h2>Upload Dataset</h2>
 
       {/* DATASET CARDS */}
       <div className="dataset-section">
@@ -241,9 +280,8 @@ function Upload() {
           {Object.keys(fileTypes).map((key) => (
             <label
               key={key}
-              className={`dataset-card ${
-                selected === key ? "active" : ""
-              }`}
+              className={`dataset-card ${selected === key ? "active" : ""
+                }`}
             >
               <input
                 type="radio"
@@ -277,9 +315,11 @@ function Upload() {
           />
 
           <div className="upload-content">
-            <div className="upload-icon">⬆️</div>
-            <p>Drag and drop your file here</p>
-            <span>or click to browse</span>
+            <div className="upload-icon">
+              <img src = {upload} alt = 'upload icon'/>
+            </div>
+    
+            <span>click to browse</span>
           </div>
         </label>
       </div>
@@ -296,14 +336,14 @@ function Upload() {
       )}
 
       {/* PREVIEW */}
-      <Preview Data={previewData} />
+      <Preview Data={previewData} style={{width:'100%'}} />
 
       {/* BUTTON */}
       <div className="start-container">
         {previewData ? (
-          <NavLink to="/EDA" className="start-btn">
+          <button className="start-btn" onClick={uploadToBackend}>
             Start Exploration
-          </NavLink>
+          </button>
         ) : (
           <span className="start-btn disabled">
             Start Exploration

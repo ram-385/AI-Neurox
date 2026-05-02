@@ -19,7 +19,7 @@ function ColumnItem({ column, selected, onSelect, onAction }) {
         </div>
       </div>
 
-     
+
       <div
         className="dots"
         onClick={(e) => {
@@ -33,24 +33,26 @@ function ColumnItem({ column, selected, onSelect, onAction }) {
           <div className="dropdown">
             <div
               className="menu-item"
-              onClick={() => onAction(column.name, "rename")}
+              onClick={() => {
+                const newName = prompt("Enter new column name:");
+                if (!newName) return;
+
+                onAction("rename_column", {
+                  old: column.name,
+                  new: newName
+                });
+              }}
             >
               Rename
             </div>
 
             <div
               className="menu-item delete"
-              onClick={() => onAction(column.name, "delete")}
+              onClick={() => onAction("delete_column", column.name)}
             >
               Delete
             </div>
 
-            <div
-              className="menu-item"
-              onClick={() => onAction(column.name, "details")}
-            >
-              Details
-            </div>
           </div>
         )}
       </div>

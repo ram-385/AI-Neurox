@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import './SelectionBox.css'
+import "./SelectionBox.css";
+
 import {
   numericalGraphOps,
   categoricalGraphOps,
-} from "./UniOps"
+} from "./UniOps";
 
-function SelectionBox({ columns = [], onAnalyze }) {
+function SelectionBox({ columns = [], Data = [], onAnalyze }) {
   const [selectedColumn, setSelectedColumn] = useState("");
   const [columnType, setColumnType] = useState("");
   const [operation, setOperation] = useState("");
@@ -27,11 +28,11 @@ function SelectionBox({ columns = [], onAnalyze }) {
 
   return (
     <div className="selection-box">
-    
 
       {/* Column */}
       <select value={selectedColumn} onChange={handleColumnChange}>
         <option value="">Select Column</option>
+
         {columns.map((col, i) => (
           <option key={i} value={col.name}>
             {col.name}
@@ -62,12 +63,13 @@ function SelectionBox({ columns = [], onAnalyze }) {
             return;
           }
 
-          console.log("SENDING:", selectedColumn, operation, columnType);
+          const values = Data.map(row => row[selectedColumn]);
 
           onAnalyze?.({
             column: selectedColumn,
             operation,
             type: columnType,
+            values,   // 🔥 THIS IS IMPORTANT
           });
         }}
       >

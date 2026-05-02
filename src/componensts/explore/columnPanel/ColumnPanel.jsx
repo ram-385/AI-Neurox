@@ -2,39 +2,23 @@ import React, { useState } from "react";
 import ColumnItem from "./ColumnItem";
 import "./columnPanel.css";
 
-function ColumnPanel({columns=[],setColumns}) {
+function ColumnPanel({columns=[],onAction}) {
   
 
   const [selectedColumn, setSelectedColumn] = useState(null);
   const [search, setSearch] = useState("");
 
-  
-  const handleAction = (columnName, action) => {
-    console.log(columnName, action);
 
-    if (action === "delete") {
-      setColumns(prev => prev.filter(col => col.name !== columnName));
-    }
 
-    if (action === "rename") {
-      const newName = prompt("Enter new name:");
-      if (!newName) return;
 
-      setColumns(prev =>
-        prev.map(col =>
-          col.name === columnName ? { ...col, name: newName } : col
-        )
-      );
-    }
+ console.log("COLUMNS:", columns);
 
-    if (action === "details") {
-      alert(`Column: ${columnName}`);
-    }
-  };
 
-  const filteredColumns = columns.filter(col =>
-    col.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredColumns = columns.filter((col) =>
+  (col?.name || "").toLowerCase().includes((search || "").toLowerCase())
+);
+
+//  console.log("FILTERED:", filteredColumns);
 
   return (
     <div className="column-panel">
@@ -62,7 +46,7 @@ function ColumnPanel({columns=[],setColumns}) {
             column={col}
             selected={selectedColumn === col.name}
             onSelect={setSelectedColumn}
-            onAction={handleAction}   
+            onAction={onAction}   
           />
         ))}
       </div>

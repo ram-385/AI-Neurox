@@ -17,5 +17,4 @@
 /* Plotly canvas control */
 .chart-container .js-plotly-plot {
   width: 100% !important;
-  height: 100% !important;
 }

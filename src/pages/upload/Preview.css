@@ -4,12 +4,10 @@
    color :#00aaff;
    max-height: 520px;
 
-  padding: 15px;
   border-radius: 18px;
 
   background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-
+  
   border: 1px solid rgba(0, 170, 255, 0.15);
 
   display: flex;
@@ -47,7 +45,7 @@
 .UPreview-box th {
   background: rgba(0, 170, 255, 0.15);
   color: #00d4ff;
-
+  backdrop-filter: blur(20px);
   position: sticky;
   top: 0;
   z-index: 2;

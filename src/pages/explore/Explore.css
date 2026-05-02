@@ -2,6 +2,10 @@
 .explore-layout {
   display: flex;
   height: 100vh;
+   background: linear-gradient(90deg, #00aaff, #00ffcc);
+   background-clip: text;
+  -webkit-background-clip: text;
+ 
 }
 
 /* LEFT PANEL */
@@ -18,7 +22,7 @@
   flex-direction: column;
   padding: 10px;
   height: 95%;
-  margin-left: 20px;
+  margin-left: 10px;
   
  
 }
@@ -45,12 +49,16 @@
   margin-top: 10px;
 
    flex-wrap: wrap;
-  background: linear-gradient(145deg, #0a0f2c, #0f173a);
+   background: linear-gradient(
+    145deg,
+    rgba(25, 36, 59, 0.92),
+    rgba(20, 29, 49, 0.97)
+  );
   border-radius: 12px;
 
   box-shadow: 0 0 15px rgba(0, 234, 255, 0.08);
   transition: 0.3s;
-  width: 95%;
+  width: 97%;
 }
 
 

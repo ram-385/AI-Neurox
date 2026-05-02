@@ -1,45 +1,80 @@
 .action-panel {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 14px;
 
-  padding: 16px;
-  margin: 10px;
+  
+  grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
 
-  border-radius: 16px;
+  /* center alignment (important) */
+  justify-content: center;
 
-  /* visible container background */
-  background: linear-gradient(
-    180deg,
-    rgba(17, 24, 39, 0.95),
-    rgba(11, 18, 32, 0.98)
+  gap: 18px;
+
+  padding: 20px;
+  margin: 12px;
+
+  border-radius: 18px;
+
+  /* premium glass background */
+ background: linear-gradient(
+    145deg,
+    rgba(25, 36, 59, 0.92),
+    rgba(20, 29, 49, 0.97)
   );
 
-  /* subtle border to separate from page */
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  /* subtle glow border */
+  border: 1px solid rgba(99, 102, 241, 0.15);
 
   /* depth */
   box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.45),
+    0 10px 35px rgba(0, 0, 0, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
 
-  /* smooth interaction */
-  transition: all 0.25s ease;
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
 }
 
-/* hover effect for whole panel */
+
+/* subtle hover for whole panel */
 .action-panel:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(99, 102, 241, 0.35);
+
   box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(99, 102, 241, 0.15);
+    0 15px 45px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(99, 102, 241, 0.18);
 }
 
-/* optional header (agar add karna chaho future me) */
+
+/* optional header */
 .action-panel-header {
   grid-column: 1 / -1;
+
   font-size: 15px;
   font-weight: 600;
-  color: var(--text-primary);
 
-  margin-bottom: 6px;
+  color: #e8ecf8;
+
+  margin-bottom: 8px;
+
+  position: relative;
+}
+
+/* underline glow */
+.action-panel-header::after {
+  content: "";
+  display: block;
+
+  margin-top: 6px;
+  width: 40px;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    #6366f1,
+    transparent
+  );
+
+  border-radius: 2px;
 }

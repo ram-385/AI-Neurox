@@ -304,9 +304,7 @@ function Upload() {
 
       {/* UPLOAD BOX */}
       <div className="upload-section">
-        <h3>2. Upload Dataset File</h3>
-        <p>Choose your file and we'll process it securely</p>
-
+        
         <label className="upload-box">
           <input
             type="file"

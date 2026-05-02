@@ -1,6 +1,10 @@
 .operation-panel {
   width: 100%;
-  background: #0a0f2c;
+   background: linear-gradient(
+    145deg,
+    rgba(25, 36, 59, 0.92),
+    rgba(20, 29, 49, 0.97)
+  );
   border: 1px solid #1f2a4a;
   border-radius: 12px;
   padding: 16px;

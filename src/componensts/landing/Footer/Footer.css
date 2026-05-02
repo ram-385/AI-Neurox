@@ -1,8 +1,12 @@
 .footer {
   padding: 50px 20px 20px;
-  background: linear-gradient(135deg, #050b1a, #0a1f3f);
+  
+  background: linear-gradient(90deg, #8ab2c6, #b8e2da);
+   background-clip: text;
+  -webkit-background-clip: text;
+
   color: #fff;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 2px solid rgba(255,255,255,0.1);
   padding-top: 15px;
 }
 
@@ -21,7 +25,7 @@
   font-size: 20px;
   margin-bottom: 10px;
 
-  background: linear-gradient(90deg, #00aaff, #00ffcc);
+  background: linear-gradient(90deg, #8ab2c6, #b8e2da);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

@@ -6,7 +6,9 @@ function CTA() {
     return (
         <section className="cta">
 
-            <h2>Ready to Build Your AI Pipeline?</h2>
+            <h2 className="cta-title">
+                <span>Ready to Build Your AI Pipeline?</span>
+            </h2>
 
             <NavLink to="/upload">
                 <button className="cta-btn">Get Started →</button>

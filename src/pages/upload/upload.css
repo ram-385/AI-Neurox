@@ -3,7 +3,12 @@
   min-height: 100vh;
   padding: 40px 20px;
   width: 100%;
-  background: linear-gradient(135deg, #050b1a, #0a1f3f);
+
+   background: linear-gradient(90deg, #00aaff, #00ffcc);
+   background-clip: text;
+  -webkit-background-clip: text;
+   
+
   color: white;
 
   display: flex;
@@ -110,16 +115,6 @@
   align-items: center; /* center content */
 }
 
-/* Heading */
-.upload-section h3 {
-  color: #00ffaa;
-}
-
-.upload-section p {
-  color: #aaa;
-  margin-bottom: 20px;
-  text-align: center;
-}
 
 /* BOX */
 .upload-box {
@@ -188,7 +183,11 @@
   flex-wrap: wrap;
   gap: 10px;
 
-  background: rgba(255, 255, 255, 0.05);
+ background: linear-gradient(
+    145deg,
+    rgba(25, 36, 59, 0.92),
+    rgba(20, 29, 49, 0.97)
+  );
   backdrop-filter: blur(10px);
 
   border: 1px solid rgba(0, 170, 255, 0.2);

@@ -1,15 +1,16 @@
 .preview-box {
-  width: 95%;
-  max-width: 1100px;
-
+  width: 100%;
   color: #00aaff;
   max-height: 520px;
 
-  padding: 16px;
   border-radius: 16px;
 
   /* premium glass effect */
-  background: rgba(10, 18, 32, 0.7);
+   background: linear-gradient(
+    145deg,
+    rgba(25, 36, 59, 0.92),
+    rgba(20, 29, 49, 0.97)
+  );
   backdrop-filter: blur(14px);
 
   border: 1px solid rgba(0, 170, 255, 0.18);
@@ -49,7 +50,7 @@
 .preview-box th {
   background: linear-gradient(
     180deg,
-    rgba(0, 170, 255, 0.25),
+    rgba(17, 28, 33, 0.25),
     rgba(0, 140, 255, 0.12)
   );
 
